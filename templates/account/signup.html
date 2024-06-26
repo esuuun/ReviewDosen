@@ -1,0 +1,54 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<!-- Register -->
+<div class="py-16">
+    <div class="flex bg-white rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
+        <div class="hidden lg:block lg:w-1/2 bg-cover"
+            style="background-image:url('https://images.unsplash.com/photo-1546514714-df0ccc50d7bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80')">
+        </div>
+        <div class="w-full p-8 lg:w-1/2">
+            <h2 class="text-2xl font-bold text-black text-center">SignUp</h2>
+            <form action="{% url 'account_signup' %}" method="POST">
+                {% csrf_token %}
+                
+                <!-- Render fields individually for more control -->
+                <div class="mb-4">
+                    <label for="id_email" class="block text-sm font-medium text-gray-700">Email</label>
+                    {{ form.email }}
+                    {% if form.email.errors %}
+                    <p class="text-red-500 text-xs italic">{{ form.email.errors }}</p>
+                    {% endif %}
+                </div>
+                
+                <div class="mb-4">
+                    <label for="id_password1" class="block text-sm font-medium text-gray-700">Password</label>
+                    {{ form.password1 }}
+                    {% if form.password1.errors %}
+                    <p class="text-red-500 text-xs italic">{{ form.password1.errors }}</p>
+                    {% endif %}
+                </div>
+                
+                <div class="mb-4">
+                    <label for="id_password2" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+                    {{ form.password2 }}
+                    {% if form.password2.errors %}
+                    <p class="text-red-500 text-xs italic">{{ form.password2.errors }}</p>
+                    {% endif %}
+                </div>
+                
+                <div class="flex mt-8 justify-center">
+                    <input type="submit" class="btn btn-wide bg-black text-white hover:text-black" value="SignUp">
+                </div>
+                
+                <div class="mt-4 flex items-center justify-between">
+                    <span class="border-b w-1/5 md:w-1/4"></span>
+                    <a href="{% url 'account_login' %}" class="text-xs text-black uppercase">or login</a>
+                    <span class="border-b w-1/5 md:w-1/4"></span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReviewDosen</title>
+    {% tailwind_css %}
+</head>
+<style>
+    .star {
+      color: gold;
+      font-size: 24px;
+    }
+    .star-gray {
+      color: gray;
+      font-size: 24px;
+    }
+  </style>
+<body>
+    {% include 'navbar.html' %}
+    {% block content %}
+    
+    {% endblock %}
+    {%include 'footer.html'%}
+</body>
+</html>

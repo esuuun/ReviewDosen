@@ -1,0 +1,274 @@
+{% load static tailwind_tags %}
+{% tailwind_css %} 
+
+{%include 'landing_page_navbar.html'%}
+{%block content%}
+<section class="bg-white">
+  <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
+    <a
+      href="{% url 'home'%}"
+      class="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full hover:bg-gray-200"
+      role="alert"
+    >
+      <span
+        class="text-xs bg-primary-600 rounded-full text-gray-900 px-4 py-1.5 mr-3"
+        >New</span
+      >
+      <span class="text-sm font-medium">Lihat review terbaru!</span>
+      <svg
+        class="ml-2 w-5 h-5"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+          clip-rule="evenodd"
+        ></path>
+      </svg>
+    </a>
+    <h1
+      class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl \"
+    >
+      ReviewDosen.
+    </h1>
+    <p
+      class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48"
+    >
+      Jangan khawatir saat memilih dosen di SIAK WAR! Cari tahu dan buat review
+      untuk dosenmu di ReviewDosen.
+    </p>
+    <div class="flex mb-2 space-y-4 sm:flex-row justify-center">
+      <form
+        method="GET"
+        action="{% url 'home' %}"
+        class="input input-bordered flex items-center gap-2 w-96"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 16 16"
+          fill="currentColor"
+          class="w-4 h-4 opacity-70"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+            clip-rule="evenodd"
+          />
+        </svg>
+
+        <input
+          class="grow input input-ghost border-none focus:outline-none"
+          type="text"
+          name="q"
+          placeholder="Cari nama dosen kamu!"
+        />
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="mb-9">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div
+      class="flex justify-center items-center gap-x-5 gap-y-8 lg:gap-y-0 flex-wrap md:flex-wrap lg:flex-nowrap lg:flex-row lg:justify-between lg:gap-x-8"
+    >
+      <div
+        class="relative w-full text-center max-md:max-w-sm max-md:mx-auto group md:w-2/5 lg:w-1/4"
+      >
+        <div
+          class="bg-pink-50 rounded-lg flex justify-center items-center mb-5 w-20 h-20 mx-auto cursor-pointer transition-all duration-500 group-hover:bg-pink-600"
+        >
+          <svg
+            class="w-[30px] h-[30px] text-pink-600 group-hover:text-white"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-width="2"
+              d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"
+            />
+          </svg>
+        </div>
+        <h4 class="text-lg font-medium text-gray-900 mb-3 capitalize">
+          Cari Dosenmu dengan Mudah
+        </h4>
+        <p class="text-sm font-normal text-gray-500">
+          Kamu bisa dengan mudah menemukan dosen berdasarkan nama ataupun
+          fakultasnya.
+        </p>
+      </div>
+      <div
+        class="relative w-full text-center max-md:max-w-sm max-md:mx-auto group md:w-2/5 lg:w-1/4"
+      >
+        <div
+          class="bg-teal-50 rounded-lg flex justify-center items-center mb-5 w-20 h-20 mx-auto cursor-pointer transition-all duration-500 group-hover:bg-teal-600"
+        >
+          <svg
+            class="w-[30px] h-[30px] text-teal-600 group-hover:text-white"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"
+            />
+          </svg>
+        </div>
+        <h4 class="text-lg font-medium text-gray-900 mb-3 capitalize">
+          Buat Review Secara Anonim
+        </h4>
+        <p class="text-sm font-normal text-gray-500">
+          Kamu bisa memberikan ulasan tentang dosenmu secara anonim.
+        </p>
+      </div>
+      <div
+        class="relative w-full text-center max-md:max-w-sm max-md:mx-auto group md:w-2/5 lg:w-1/4"
+      >
+        <div
+          class="bg-orange-50 rounded-lg flex justify-center items-center mb-5 w-20 h-20 mx-auto cursor-pointer transition-all duration-500 group-hover:bg-orange-600"
+        >
+          <svg
+            class="w-[30px] h-[30px] text-orange-600 group-hover:text-white"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M7.556 8.5h8m-8 3.5H12m7.111-7H4.89a.896.896 0 0 0-.629.256.868.868 0 0 0-.26.619v9.25c0 .232.094.455.26.619A.896.896 0 0 0 4.89 16H9l3 4 3-4h4.111a.896.896 0 0 0 .629-.256.868.868 0 0 0 .26-.619v-9.25a.868.868 0 0 0-.26-.619.896.896 0 0 0-.63-.256Z"
+            />
+          </svg>
+        </div>
+        <h4 class="text-lg font-medium text-gray-900 mb-3 capitalize">
+          Baca Review dari Mahasiswa Lain
+        </h4>
+        <p class="text-sm font-normal text-gray-500">
+          Baca berbagai ulasan dari mahasiswa lain tentang dosen-dosen yang akan
+          kamu pilih.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<h2 class="text-center font-bold text-3xl mb-10 mt-24">Pilih Fakultasmu!</h2>
+<section class="grid grid-cols md:grid-cols-3 gap-y-10 justify-items-center md:px-32 sm:px-6">  
+  {%for fakultas in page_obj%}
+
+  <a href="{% url 'home' %}?q={{ fakultas.name }}">
+<figure class="relative max-w-sm transition-all duration-300 cursor-pointer brightness-50 hover:brightness-100 h-60 w-80">
+    <img class="rounded-lg" src="https://www.ui.ac.id/wp-content/uploads/2022/12/home_whyui-700x450.jpg" alt="image description">
+    <figcaption class="absolute inset-0 flex items-center bottom-7 justify-center px-4 text-xl text-white font-bold text-center">
+      <p>{{fakultas.name}}</p>
+    </figcaption>
+  </figure>
+  </a>
+  {%endfor%}
+  
+</section>
+<div class="flex justify-center mb-10">
+  <div class="flex items-center gap-4">
+    <!-- Previous Button -->
+    {% if page_obj.has_previous %}
+      <a href="{% url 'landing-page' %}?page={{ page_obj.previous_page_number }}">
+        <button
+          class="flex items-center gap-2 px-6 py-3 font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-lg select-none hover:bg-gray-900/10 active:bg-gray-900/20"
+          type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+            aria-hidden="true" class="w-4 h-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path>
+          </svg>
+          Previous
+        </button>
+      </a>
+    {% else %}
+      <button
+        class="flex items-center gap-2 px-6 py-3 font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-lg select-none disabled:pointer-events-none disabled:opacity-50"
+        type="button" disabled>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+          aria-hidden="true" class="w-4 h-4">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path>
+        </svg>
+        Previous
+      </button>
+    {% endif %}
+
+    <!-- Page Number Buttons -->
+    <div class="flex items-center gap-2">
+      {% for page_num in paginator.page_range %}
+        <div class="flex items-center gap-2">
+          {% if page_obj.number == page_num %}
+            <a href="{% url 'landing-page' %}?page={{ page_num }}">
+              <button
+                class="relative h-10 max-h-[40px] w-10 max-w-[40px] select-none rounded-lg bg-gray-900 text-center align-middle font-sans text-xs font-medium uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                type="button">
+                <span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                  {{ page_num }}
+                </span>
+              </button>
+            </a>
+          {% else %}
+            <a href="{% url 'landing-page' %}?page={{ page_num }}">
+              <button
+                class="relative h-10 max-h-[40px] w-10 max-w-[40px] select-none rounded-lg text-center align-middle font-sans text-xs font-medium uppercase text-gray-900 transition-all hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                type="button">
+                <span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                  {{ page_num }}
+                </span>
+              </button>
+            </a>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Next Button -->
+    {% if page_obj.has_next %}
+      <a href="{% url 'landing-page' %}?page={{ page_obj.next_page_number }}">
+        <button
+          class="flex items-center gap-2 px-6 py-3 font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-lg select-none hover:bg-gray-900/10 active:bg-gray-900/20"
+          type="button">
+          Next
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+            aria-hidden="true" class="w-4 h-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+          </svg>
+        </button>
+      </a>
+    {% else %}
+      <button
+        class="flex items-center gap-2 px-6 py-3 font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-lg select-none disabled:pointer-events-none disabled:opacity-50"
+        type="button" disabled>
+        Next
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+          aria-hidden="true" class="w-4 h-4">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+        </svg>
+      </button>
+    {% endif %}
+  </div>
+</div>
+{%endblock%}
+
+{%include 'footer.html'%}

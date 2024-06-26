@@ -1,0 +1,21 @@
+{% load static tailwind_tags %}
+{% tailwind_css %}
+
+{% load i18n %}
+{% load allauth %}
+{% load account %}
+
+{% block content %}
+<div class="py-16">
+    <div class="bg-white rounded-lg shadow-lg overflow-hidden mx-auto max-w-2xl">
+        <div class="w-full p-8">
+            <h1 class="text-3xl font-bold text-black text-center mb-6">
+                {% trans "Verify Your Email Address" %}
+            </h1>
+            <p class="text-center text-gray-600 mb-6">
+                {% blocktrans %}We have sent an email to you for verification. Follow the link provided to finalize the signup process. If you do not see the verification email in your main inbox, check your spam folder. Please contact us if you do not receive the verification email within a few minutes.{% endblocktrans %}
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock content %}
