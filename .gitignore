@@ -5,7 +5,6 @@ node_modules/
 .env
 get-pip.py
 
-theme/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
