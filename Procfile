@@ -1,1 +1,1 @@
-web: gunicorn ReviewDosen:app
+web: gunicorn ReviewDosen.wsgi --log-file -
