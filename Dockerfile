@@ -4,14 +4,18 @@ FROM python:3.12.3-slim
 # Set the working directory
 WORKDIR /app
 
-# Copy the requirements file
+# Copy the requirements file and install dependencies
 COPY requirements.txt .
-
-# Install the dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the project files
 COPY . .
 
-# Run migrations, collect static files, and start the server
-CMD ["sh", "-c", "python manage.py migrate && python manage.py collectstatic --noinput && gunicorn ReviewDosen.wsgi"]
+# Run migrations
+RUN python manage.py migrate
+
+# Collect static files
+RUN python manage.py collectstatic --noinput
+
+# Start Gunicorn server
+CMD ["gunicorn", "ReviewDosen.wsgi:application", "--bind", "0.0.0.0:8000"]
