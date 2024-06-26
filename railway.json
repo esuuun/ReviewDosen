@@ -5,13 +5,13 @@
         "nixpacks": {
             "phases": {
                 "install": {
-                    "pkgs": ["python39", "pip"]
+                    "pkgs": ["python39", "python39Packages.pip"]
                 }
             }
         }
     },
     "deploy": {
-        "startCommand": "python3 manage.py migrate && gunicorn ReviewDosen.wsgi",
+        "startCommand": "python3.9 manage.py migrate && gunicorn ReviewDosen.wsgi",
         "restartPolicyType": "ON_FAILURE",
         "restartPolicyMaxRetries": 10
     }
