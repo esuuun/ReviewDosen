@@ -4,7 +4,6 @@ env/
 node_modules/
 .env
 get-pip.py
-staticfiles/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
