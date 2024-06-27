@@ -13,7 +13,7 @@ from django.core.paginator import Paginator
 
 
 def landingPage(request):
-    fakultass = Fakultas.objects.all()
+    fakultass = Fakultas.objects.all().order_by('name')
     paginator = Paginator(fakultass, 6)  # Adjust number of items per page if necessary
 
     page_number = request.GET.get("page")
@@ -36,13 +36,13 @@ def home (request):
         Q(name__icontains=q)
         )
     
-    paginator = Paginator(dosens, 5)
+    paginator = Paginator(dosens, 8)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
     
     dosen_count = dosens.count()
 
-    fakultass = Fakultas.objects.all()
+    fakultass = Fakultas.objects.all().order_by('name')
 
     context = {
         'dosens':dosens,
