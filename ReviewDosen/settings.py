@@ -59,6 +59,9 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
 
+    'django.contrib.staticfiles',
+    'whitenoise.runserver_nostatic',
+
 ]
 
 TAILWIND_APP_NAME = 'theme'
