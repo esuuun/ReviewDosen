@@ -36,11 +36,22 @@ def home (request):
         Q(name__icontains=q)
         )
     
+    paginator = Paginator(dosens, 5)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+    
     dosen_count = dosens.count()
 
     fakultass = Fakultas.objects.all()
 
-    context = {'dosens':dosens, 'fakultass' : fakultass, 'dosen_count':dosen_count,}
+    context = {
+        'dosens':dosens,
+        'fakultass' : fakultass, 
+        'dosen_count':dosen_count,
+        'page_obj': page_obj,
+        'paginator': paginator,
+        'page_number': page_number,
+        }
     return render(request,"base/home.html",context )
 
 
