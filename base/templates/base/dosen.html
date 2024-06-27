@@ -1,4 +1,6 @@
 {% extends 'main.html' %} {% load custom_filters %} {% block content %}
+<body class="bg-white">
+  
 <div class="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-20 mx-20 mt-20">
   <div class="flex flex-col text-center gap-3 md:text-left">
     <h1 class="font-bold text-4xl ">{{dosen.name}}</h1>
@@ -175,4 +177,5 @@ $(document).ready(function() {
 });
 
 </script>
+</body>
 {% endblock %}

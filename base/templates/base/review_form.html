@@ -1,62 +1,76 @@
-{% extends 'main.html'%}
-
-{% block content %}
+{% extends 'main.html'%} {% block content %}
 <style>
-    .rating {
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: center;
-    }
-    .rating > input {
-        display: none;
-    }
-    .rating > label {
-        position: relative;
-        width: 1em;
-        font-size: 3rem;
-        color: #d1d5db; /* Gray-300 color */
-        cursor: pointer;
-        transition: color 0.2s;
-    }
-    .rating > input:checked ~ label {
-        color: #FFD700; /* Gold color */
-    }
-    .rating > input:not(:checked) ~ label:hover,
-    .rating > input:not(:checked) ~ label:hover ~ label {
-        color: #FFD700; /* Gold color */
-    }
-    .rating > input:checked ~ label:hover,
-    .rating > input:checked ~ label:hover ~ label {
-        color: #FFD700; /* Gold color */
-    }
+  .rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
+  .rating > input {
+    display: none;
+  }
+  .rating > label {
+    position: relative;
+    width: 1em;
+    font-size: 3rem;
+    color: #d1d5db; /* Gray-300 color */
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .rating > input:checked ~ label {
+    color: #ffd700; /* Gold color */
+  }
+  .rating > input:not(:checked) ~ label:hover,
+  .rating > input:not(:checked) ~ label:hover ~ label {
+    color: #ffd700; /* Gold color */
+  }
+  .rating > input:checked ~ label:hover,
+  .rating > input:checked ~ label:hover ~ label {
+    color: #ffd700; /* Gold color */
+  }
 </style>
-        <form method="POST" class="">
-            {% csrf_token %} 
-            <div class="max-w-xl mx-auto mt-16 flex w-full flex-col border rounded-lg shadow-md bg-white p-8 text-center gap-5">
-                <p class="text-4xl font-bold">Berapa rating <span class="text-yellow-500">{{dosen.name}}</span> menurut kamu?</p>
-                <div class="rating mb-6">
-                    <input type="radio" id="star5" name="rating" value="5" class="hidden" />
-                    <label for="star5" title="5 stars" class="text-3xl cursor-pointer">★</label>
-                    <input type="radio" id="star4" name="rating" value="4" class="hidden" />
-                    <label for="star4" title="4 stars" class="text-3xl cursor-pointer">★</label>
-                    <input type="radio" id="star3" name="rating" value="3" class="hidden" />
-                    <label for="star3" title="3 stars" class="text-3xl cursor-pointer">★</label>
-                    <input type="radio" id="star2" name="rating" value="2" class="hidden" />
-                    <label for="star2" title="2 stars" class="text-3xl cursor-pointer">★</label>
-                    <input type="radio" id="star1" name="rating" value="1" class="hidden" />
-                    <label for="star1" title="1 star" class="text-3xl cursor-pointer">★</label>
-                </div>
-                <p class="text-4xl font-bold">Indeks nilai yang kamu dapat</p>
-                <div class="mb-4">
-                    {{ form.grade }}
-                </div>
+<body class="bg-white">
+  <form method="POST" class="">
+    {% csrf_token %}
+    <div
+      class="max-w-xl mx-auto mt-16 flex w-full flex-col border rounded-lg shadow-md bg-white p-8 text-center gap-5"
+    >
+      <p class="text-4xl font-bold">
+        Berapa rating
+        <span class="text-yellow-500">{{dosen.name}}</span> menurut kamu?
+      </p>
+      <div class="rating mb-6">
+        <input type="radio" id="star5" name="rating" value="5" class="hidden" />
+        <label for="star5" title="5 stars" class="text-3xl cursor-pointer"
+          >★</label
+        >
+        <input type="radio" id="star4" name="rating" value="4" class="hidden" />
+        <label for="star4" title="4 stars" class="text-3xl cursor-pointer"
+          >★</label
+        >
+        <input type="radio" id="star3" name="rating" value="3" class="hidden" />
+        <label for="star3" title="3 stars" class="text-3xl cursor-pointer"
+          >★</label
+        >
+        <input type="radio" id="star2" name="rating" value="2" class="hidden" />
+        <label for="star2" title="2 stars" class="text-3xl cursor-pointer"
+          >★</label
+        >
+        <input type="radio" id="star1" name="rating" value="1" class="hidden" />
+        <label for="star1" title="1 star" class="text-3xl cursor-pointer"
+          >★</label
+        >
+      </div>
+      <p class="text-4xl font-bold">Indeks nilai yang kamu dapat</p>
+      <div class="mb-4">{{ form.grade }}</div>
 
-                <p class="text-4xl font-bold">Berikan review untuk <span class="text-yellow-500">{{dosen.name}}</span></p>
-                <div class="mb-4">
-                    {{form.body}}
-                </div>
-                <button type="submit" class="btn bg-black text-white text-lg btn-outline " >Submit Review</button>
-            </div>
-        </form>
-
+      <p class="text-4xl font-bold">
+        Berikan review untuk <span class="text-yellow-500">{{dosen.name}}</span>
+      </p>
+      <div class="mb-4">{{form.body}}</div>
+      <button type="submit" class="btn bg-black text-white text-lg btn-outline">
+        Submit Review
+      </button>
+    </div>
+  </form>
+</body>
 {%endblock%}

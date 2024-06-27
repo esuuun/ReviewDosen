@@ -1,11 +1,7 @@
 {%extends 'main.html'%}
 {% block content %}
-<!-- <div>
-  <form method="POST" action="">
-    {% csrf_token %} {{form.as_p}}
-    <input type="submit" value="Submit" />
-  </form>
-</div> -->
+<body class="bg-white">
+
 <form method="POST" class="">
   {% csrf_token %} 
   <div class="max-w-xl mx-auto mt-16 flex w-full flex-col border rounded-lg shadow-md bg-white p-8 text-center gap-5">
@@ -26,4 +22,5 @@
       <input type="submit" value="Tambah dosen" class="btn bg-black text-white text-lg btn-outline " ></input>
   </div>
 </form>
+</body>
 {% endblock %}
