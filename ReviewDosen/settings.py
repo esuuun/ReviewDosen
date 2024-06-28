@@ -34,9 +34,9 @@ if ENVIRONMENT == 'development':
 else:
     DEBUG = False
 
-ALLOWED_HOSTS = ['localhost','127.0.0.1','reviewdosen-production.up.railway.app']
+ALLOWED_HOSTS = ['localhost','127.0.0.1','reviewdosen.up.railway.app']
 
-CSRF_TRUSTED_ORIGINS = ['https://reviewdosen-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://reviewdosen.up.railway.app']
 
 
 # Application definition
