@@ -18,7 +18,12 @@
     }
   </style>
 <body>
-    {% include 'navbar.html' %}
+    {%if is_landing_page%}
+      {%include 'landing_page_navbar.html'%}
+    {%else%}
+      {% include 'navbar.html' %}
+    {%endif%}
+
     {% block content %}
     
     {% endblock %}

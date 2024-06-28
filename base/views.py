@@ -16,12 +16,14 @@ def landingPage(request):
     fakultass = Fakultas.objects.all().order_by('name')
     paginator = Paginator(fakultass, 6)  # Adjust number of items per page if necessary
 
+
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
     context = {
         'page_obj': page_obj,
         'paginator': paginator,
         'page_number': page_number,
+        'is_landing_page': True,
     }
     return render(request, "base/landingPage.html", context)
 
