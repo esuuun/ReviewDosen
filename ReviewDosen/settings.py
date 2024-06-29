@@ -14,6 +14,8 @@ from pathlib import Path
 import os
 import dj_database_url
 from environ import Env
+from django.core.mail import send_mail
+
 env = Env()
 Env.read_env()
 ENVIRONMENT = env('ENVIRONMENT', default='production')
@@ -112,7 +114,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ReviewDosen.wsgi.application'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 AUTHENTICATION_BACKENDS = [
     
@@ -148,10 +149,24 @@ DATABASES = {
     }
 }
 
+
 POSTGRES_LOCALLY = False
 
 if ENVIRONMENT == 'production' or POSTGRES_LOCALLY == True:
     DATABASES['default'] = dj_database_url.parse(env('DATABASE_URL'))
+    
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_USER = env('EMAIL_ADDRESS')
+    EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+    EMAIL_USE_TLS = True
+    EMAIL_PORT = 587
+    DEFAULT_FROM_EMAIL = f'ReviewDosen {env("EMAIL_ADDRESS")}'
+    ACCOUNT_EMAIL_SUBJECT_PREFIX = ''
+    DEFAULT_FROM_EMAIL_NAME = 'ReviewDosen'
+
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 # Password validation
